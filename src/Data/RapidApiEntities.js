@@ -1,8 +1,6 @@
-import {rapidApiConfig as config} from "../Configuration.js";
-
 export const RapidApi = {
-	Key: config.Key,
-	Host: config.Host,
+	Key: process.env.REACT_APP_RAPID_API_KEY,
+	Host: process.env.REACT_APP_RAPID_API_HOST,
 };
 
 export const Rapid_Keys = {
