@@ -9,14 +9,18 @@ import { Routes, StatusCode, Types } from "../../Constants/Environment";
 import Searhbar from "./Searchbar";
 import { getAccount, handleErrorAsync } from "../../Firebase/FirebaseEntitiesContext";
 import { Text } from "../../Constants/Messages";
-import { Class, Id } from "../../Constants/Css";
+import { Class, Id, Theme } from "../../Constants/Css";
 import { LogTypes } from "../../Firebase/FirebaseEntities";
+import {  ThemeContext } from "../../Contexts/ThemeContextProvider.js";
+import Dark from "../../Resources/Images/Dark-mode.svg";
+import Light from "../../Resources/Images/Light-mode.svg";
 
 function Navbar() {
 	const history = useHistory();
 	const { ...authState } = useContext(AuthenticationStateContext);
 	const location = useLocation();
 	const [account, SetAccount] = useState({});
+	const {theme, toggleTheme } = useContext(ThemeContext);
 
 	const handleNavigation = useCallback(
 		(path) => {
@@ -82,6 +86,7 @@ function Navbar() {
 						<Button Class={Class.btn_primary} Text={Text.Login} OnClick={() => handleNavigation(Routes.Login)} Type={Types.Button} />
 					</>
 				)}
+				<Button Class={Class.btn_primary} Image={theme === Theme.dark ? Light: Dark} Text={theme === Theme.dark ? Text.Light: Text.Dark} OnClick={toggleTheme} Type={Types.Button} />
 			</ul>
 		</nav>
 	);

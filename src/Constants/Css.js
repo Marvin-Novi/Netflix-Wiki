@@ -40,7 +40,8 @@ export const Class = {
 	genre: "genre",
 	summary: "summary",
 	story: "story",
-	image: "image"
+	image: "image",
+	btn_image: "btn-image"
 };
 
 export const Id = {
@@ -74,3 +75,15 @@ export const Aria = {
 	true: "true",
 	false: "false",
 };
+
+export const Theme ={
+	dark_background: "var(--dark-background)",
+	light_background: "var(--light-background)",
+	dark_text: "var(--dark-text)",
+	light_text: "var(--light-text)"
+}
+
+export const Keys = {
+	background: "--background-color",
+	text: "--text-color"
+}

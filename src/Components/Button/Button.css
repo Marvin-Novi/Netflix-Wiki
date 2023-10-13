@@ -5,6 +5,10 @@
   border: none;
 }
 
+.btn-image{
+ max-height: 10px;
+}
+
 .btn:hover {
   transition: 0.3s;
   transform: scale(1.05);

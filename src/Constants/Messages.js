@@ -50,7 +50,9 @@ export const Text = {
 	Subject: "Subject",
 	Send: "Send",
 	Background: "Background",
-	Ticket_logged: "Ticket has been logged with id:"
+	Ticket_logged: "Ticket has been logged with id:",
+	Dark: "Dark",
+	Light: "Light"
 };
 
 export const Firebase = {

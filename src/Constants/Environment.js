@@ -18,6 +18,7 @@ export const Routes = {
 
 export const Keys = {
 	countryId: "countryId",
+	themeId:"themeId"
 };
 
 export const StatusCode = {
