@@ -1,0 +1,26 @@
+.btn {
+  border-radius: 25px;
+  padding: 5px 20px 5px 20px;
+  font-weight: 700;
+  border: none;
+}
+
+.btn:hover {
+  transition: 0.3s;
+  transform: scale(1.05);
+}
+
+.btn:active {
+  transition: 0.3s;
+  transform: scale(0.95);
+}
+
+.btn-primary {
+  background-color: var(--secondary);
+  color: white;
+}
+
+.btn-secondary {
+  background-color: var(--dark);
+  color: var(--light);
+}

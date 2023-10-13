@@ -1,0 +1,66 @@
+export const Error = {
+	All_fields_required: "Please fill in all fields.",
+	Confirmed_password_does_not_match: "The confirmed password does not seem to match thhe given password.",
+	Age_limition: "You must be older than 12 to make use of this service.",
+};
+
+export const Text = {
+	Loading: "Loading..",
+	Show_all: "Show all",
+	Results: "Results",
+	No_data_available: "No data available",
+	Emailaddress: "Emailaddress",
+	Logo: "Logo",
+	Delete_account: "Delete account",
+	Delete: "Delete",
+	Previous_page: "Previous page",
+	Proceed: "Are you sure you want to proceed?",
+	Current_password: "Current password",
+	Password: "Password",
+	Confirm_password: "Confirm password",
+	Update: "Update",
+	Firstname: "Firstname",
+	Surname: "Surname",
+	Gender: "Gender",
+	Birthdate: "Birthdate",
+	Country: "Country",
+	Register: "Register",
+	Password_updated: "Your password has succesfully been updated.",
+	Profile_update: "Your profile has succesfully been updated.",
+	Change_password: "Change password",
+	Login: "Login",
+	Pending: "Pending",
+	Home_H1: "Unlimited information about the available movies on Netflix.",
+	Home_Description: "Cancel at any time.Ready? Enter your email to create or restart your membership.",
+	Loading_account: "Loading account...",
+	Greet: "Hello",
+	Credentials: "Login failed",
+	Cover: "Cover",
+	Summary: "Summary",
+	Votes: "Votes",
+	Search_: "Search..",
+	Search: "Search",
+	Searchresults: "Searchresults ",
+	Browse: "Browse",
+	About_us: "About us",
+	Contact: "Contact",
+	Log_out: "Log out",
+	Profile: "Profile",
+	Message: "Message",
+	Subject: "Subject",
+	Send: "Send",
+	Background: "Background",
+	Ticket_logged: "Ticket has been logged with id:"
+};
+
+export const Firebase = {
+	Prefix: "auth/",
+	Default: "Something went wrong.",
+	Failed: "Failed",
+	Success: "Success",
+};
+
+export const RapidApi = {
+	Default: "Something went wrong.",
+	Success: "Success",
+};

@@ -1,0 +1,70 @@
+.about-us {
+	padding: 115px 10px 20px 10px;
+
+	color: white;
+}
+header {
+	z-index: -1;
+}
+
+.about-us .main-container {
+	display: flex; /* Gebruik Flexbox om de secties naast elkaar weer te geven */
+	flex-wrap: wrap; /* Laat de secties op een nieuwe regel beginnen op kleinere schermen */
+	gap: 10px; /* Voeg wat ruimte tussen de secties toe */
+}
+
+.about-us .image {
+	padding: 0;
+	height: 200px;
+	overflow: hidden;
+	margin: 20px 10px 0 10px;
+}
+
+.summary {
+	margin: 20px 10px 0 10px;
+}
+
+.story {
+	background-color: var(--dark);
+	padding: 10px;
+	min-height: 100%;
+	opacity: 0.8;
+	z-index: 1;
+}
+
+.story:hover {
+	transition: 0.6s;
+	transform: scale(1.05);
+	background-color: var(--secondary);
+	opacity: 1;
+	z-index: 11;
+}
+
+.story:active {
+	opacity: 1;
+	transition: 1s;
+	transform: scale(1.08);
+	padding: 20px;
+	z-index: 11;
+}
+
+@media screen and (min-width: 768px) {
+    .about-us  section {
+        flex: 1;
+    }
+}
+
+@media screen and (max-width: 768px) {
+	.about-us > section {
+		flex: 1;
+	}
+
+	main {
+		flex-direction: column; /* Plaats de secties onder elkaar op kleinere schermen */
+	}
+
+	section {
+		flex: auto; /* Negeer de flex-waarde en laat secties hun eigen hoogte bepalen */
+		margin-top: 20px;
+	}
+}
