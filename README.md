@@ -20,6 +20,7 @@ npm start
 This will launch your Node.js project, and you can typically access it by opening a web browser and navigating to the specified address (often `http://localhost:3000`).
 
 That's it! You've successfully installed and started your Node.js project. Enjoy working on your application!
+PLEASE CREATE AN `Configuration.js` FILE in the `src` WITH YOUR OWN RAPID API KEYS AND FIREBASE KEYS!  
 
 
 
