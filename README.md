@@ -1,4 +1,4 @@
-PLEASE CREATE A Configuration.js FILE in the src WITH YOUR OWN RAPID API KEYS AND FIREBASE KEYS!
+PLEASE CREATE A `Configuration.js FILE in the `src` WITH YOUR OWN RAPID API KEYS AND FIREBASE KEYS!
 
 # Installing the Application short explanation:
 To install and run a Node.js project, you can follow these simple steps:
@@ -67,7 +67,7 @@ This command will automatically fetch the required dependencies and install them
 
 Run the Application: After the installation is complete, you can run your React application with the appropriate npm command (usually `npm start`).
 
-PLEASE CREATE A Configuration.js FILE in the src WITH YOUR OWN RAPID API KEYS AND FIREBASE KEYS!
+PLEASE CREATE A `Configuration.js FILE in the `src` WITH YOUR OWN RAPID API KEYS AND FIREBASE KEYS!
 
 # Project Creation
 1. Open Command Prompt (as Administrator)
@@ -402,7 +402,7 @@ This documentation provides an overview of the GitHub repository associated with
 ## Repository Overview
 
 - **Repository Name:** Netflix-Wiki-ReactApp
-- **GitHub URL:** [https://github.com/MarvinEscobar/Netflix-Wiki-ReactApp.git](https://github.com/MarvinEscobar/Netflix-Wiki-ReactApp.git)
+- **GitHub URL:** [https://github.com/Marvin-Novi/Netflix-Wiki.git]https://github.com/Marvin-Novi/Netflix-Wiki.git)
 
 ## Accessing the Repository
 
