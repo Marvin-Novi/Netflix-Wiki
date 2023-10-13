@@ -1,4 +1,4 @@
-PLEASE CREATE AN Configuration.js FILE in the src WITH YOUR OWN RAPID API KEYS AND FIREBASE KEYS!
+PLEASE CREATE A Configuration.js FILE in the src WITH YOUR OWN RAPID API KEYS AND FIREBASE KEYS!
 
 # Installing the Application short explanation:
 To install and run a Node.js project, you can follow these simple steps:
@@ -67,7 +67,7 @@ This command will automatically fetch the required dependencies and install them
 
 Run the Application: After the installation is complete, you can run your React application with the appropriate npm command (usually `npm start`).
 
-PLEASE CREATE AN Configuration.js FILE in the src WITH YOUR OWN RAPID API KEYS AND FIREBASE KEYS!
+PLEASE CREATE A Configuration.js FILE in the src WITH YOUR OWN RAPID API KEYS AND FIREBASE KEYS!
 
 # Project Creation
 1. Open Command Prompt (as Administrator)
