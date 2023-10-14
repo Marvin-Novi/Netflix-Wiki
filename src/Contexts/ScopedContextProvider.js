@@ -1,10 +1,10 @@
 import React, { createContext, useState } from "react";
-import { string } from "../Constants/Data";
+import { String } from "../Constants/Data";
 
 export const ScopedContext = createContext(null);
 
 function ScopedContextProvider({ children }) {
-	let [selectedCountry, setSelectedCountry] = useState(string.Empty);
+	let [selectedCountry, setSelectedCountry] = useState(String.Empty);
 
 	const data = {
 		setSelectedCountry: setSelectedCountry,

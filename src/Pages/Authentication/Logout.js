@@ -15,7 +15,7 @@ function Login() {
 	useEffect(() => {
 		try {
 			logout();
-			handleNavigation(Routes.Login);
+			handleNavigation(Routes.LOGIN);
 		} catch (error) {
 			handleErrorAsync(LogTypes.Error, error);
 		}
@@ -27,8 +27,8 @@ function Login() {
 	}
 
 	return (
-		<div className={Class.authentication}>
-			<header className={Class.txt_center}></header>
+		<div className={Class.AUTHENTICATION}>
+			<header className={Class.TXT_CENTER}></header>
 			<section>
 				<p>{Text.Pending}</p>
 			</section>

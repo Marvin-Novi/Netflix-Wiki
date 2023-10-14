@@ -1,89 +1,87 @@
-export const Class = {
-	link: "link",
-	btn: "btn",
-	dropdown: "dropdown",
-	show: "show",
-	dropdown_Submenu: "dropdown-submenu",
-	editform: "editform",
-	errorMessage: "errorMessage",
-	menu_items: "menu-items",
-	arrow: "arrow",
-	productcard: "productcard",
-	spinner: "spinner",
-	box: "box",
-	location: "location",
-	textfield: "textfield",
-	textarea: "textarea",
-	topmenu: "topmenu",
-	App_logo: "App-logo",
-	btn_primary: "btn-primary",
-	btn_secondary: "btn-secondary",
-	register_btn: "register-btn",
-	account: "account",
-	txt_center: "txt-center",
-	register: "register",
-	authentication: "authentication",
-	browse: "browse",
-	about_us: "about-us",
-	contact: "contact",
-	main_container: "main-container",
-	searchform: "searchform",
-	home: "home",
-	userlnk: "userlnk",
-	menus: "menus",
-	card_container: "card-container",
-	card: "card",
-	col: "col",
-	inner_container: "inner-container",
-	search_img: "search-img",
-	genres: "genres",
-	genre: "genre",
-	summary: "summary",
-	story: "story",
-	image: "image",
-	btn_image: "btn-image"
-};
-
-export const Id = {
-	opt_key: "opt-key-",
-	opt_id: "opt-id-",
-	logo_area: "logo-area",
-	emailadres: "emailadres",
-	current_password: "current-password",
-	new_password: "new-password",
-	password: "password",
-	confirmed_password: "confirmed-password",
-	firstname: "firstname",
-	surname: "surname",
-	gender: "gender",
-	birthdate: "birthdate",
-	country: "country",
-	all: "all",
-	tmovs: "tmovs",
-	tseries: "tseries",
-	expiring: "expiring",
-	userlnk: "userlnk",
-	navigation_area: "navigation-area",
-	search_form: "searchform",
-	search_input: "searchinput",
-	search_button: "searchbutton",
-	search_all: "search-all",
-};
-
-export const Aria = {
-	menu: "menu",
-	true: "true",
-	false: "false",
-};
-
-export const Theme ={
-	dark_background: "var(--dark-background)",
-	light_background: "var(--light-background)",
-	dark_text: "var(--dark-text)",
-	light_text: "var(--light-text)"
+export class Class {
+	static LINK = "link";
+	static BTN = "btn";
+	static DROPDOWN = "dropdown";
+	static SHOW = "show";
+	static DROPDOWN_SUBMENU = "dropdown-submenu";
+	static EDITFORM = "editform";
+	static ERRORMESSAGE = "errorMessage";
+	static MENU_ITEMS = "menu-items";
+	static ARROW = "arrow";
+	static PRODUCTCARD = "productcard";
+	static SPINNER = "spinner";
+	static BOX = "box";
+	static LOCATION = "location";
+	static TEXTFIELD = "textfield";
+	static TEXTAREA = "textarea";
+	static TOPMENU = "topmenu";
+	static APP_LOGO = "App-logo";
+	static BTN_PRIMARY = "btn-primary";
+	static BTN_SECONDARY = "btn-secondary";
+	static REGISTER_BTN = "register-btn";
+	static ACCOUNT = "account";
+	static TXT_CENTER = "txt-center";
+	static REGISTER = "register";
+	static AUTHENTICATION = "authentication";
+	static BROWSE = "browse";
+	static ABOUT_US = "about-us";
+	static CONTACT = "contact";
+	static MAIN_CONTAINER = "main-container";
+	static SEARCH_FORM = "searchform";
+	static HOME = "home";
+	static USERLNK = "userlnk";
+	static MENUS = "menus";
+	static CARD_CONTAINER = "card-container";
+	static CARD = "card";
+	static COL = "col";
+	static INNER_CONTAINER = "inner-container";
+	static SEARCH_IMG = "search-img";
+	static GENRES = "genres";
+	static GENRE = "genre";
+	static SUMMARY = "summary";
+	static STORY = "story";
+	static IMAGE = "image";
+	static BTN_IMAGE = "btn-image";
 }
 
-export const Keys = {
-	background: "--background-color",
-	text: "--text-color"
+export class Id {
+	static OPT_KEY = "opt-key-";
+	static OPT_ID = "opt-id-";
+	static LOGO_AREA = "logo-area";
+	static EMAILADRESS = "emailadres";
+	static CURRENT_PASSWORD = "current-password";
+	static NEW_PASSWORD = "new-password";
+	static PASSWORD = "password";
+	static CONFIRMED_PASSWORD = "confirmed-password";
+	static FIRSTNAME = "firstname";
+	static SURNAME = "surname";
+	static GENDER = "gender";
+	static BIRTHDATE = "birthdate";
+	static COUNTRY = "country";
+	static ALL = "all";
+	static TMOVS = "tmovs";
+	static TSERIES = "tseries";
+	static EXPIRING = "expiring";
+	static USERLNK = "userlnk";
+	static NAVIGATION_AREA = "navigation-area";
+	static SEARCH_FORM = "searchform";
+	static SEARCH_INPUT = "searchinput";
+	static SEARCH_BUTTON = "searchbutton";
+	static SEARCH_ALL = "search-all";
+}
+
+export class Aria {
+	static MENU = "menu";
+}
+
+export class Theme {
+	static DARK_BACKGROUND = "var(--dark-background)";
+	static LIGHT_BACKGROUND = "var(--light-background)";
+	static DARK_TEXT = "var(--dark-text)";
+	static LIGHT_TEXT = "var(--light-text)";
+}
+
+export class CssCustomVariables {
+	static BACKGROUND = "--background-color";
+	static TEXT = "--text-color";
 }

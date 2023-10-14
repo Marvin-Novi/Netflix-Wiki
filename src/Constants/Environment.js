@@ -1,48 +1,48 @@
-export const Routes = {
-	Home: "/",
-	Login: "/login",
-	Logout: "/logout",
-	Register: "/register",
-	RegisterParams: "/register/:newemail?",
-	AccountDelete: "/accountdelete",
-	Profile: "/profile",
-	PasswordUpdate: "/passwordupdate",
-	Search: "/search",
-	ProductDetails: "/productdetails/:netflix_id",
-	ProductDetails_Prefix: "/productdetails/",
-	Browse: "/browse",
-	AboutUs: "/aboutus",
-	Contact: "/contact",
-	Dev_base: "localhost"
-};
+export class Routes {
+	static HOME = "/";
+	static LOGIN = "/login";
+	static LOGOUT = "/logout";
+	static REGISTER = "/register";
+	static REGISTER_PARAMS = "/register/:newemail?";
+	static ACCOUNT_DELETE = "/accountdelete";
+	static PROFILE = "/profile";
+	static PASSWORD_UPDATE = "/passwordupdate";
+	static SEARCH = "/search";
+	static PRODUCT_DETAILS = "/productdetails/:netflix_id";
+	static PRODUCT_DETAILS_PREFIX = "/productdetails/";
+	static BROWSE = "/browse";
+	static ABOUT_US = "/aboutus";
+	static CONTACT = "/contact";
+	static DEV_BASE = "localhost";
+}
 
-export const Keys = {
-	countryId: "countryId",
-	themeId:"themeId"
-};
+export class LocalStorageKeys {
+	static COUNTRY_ID = "countryId";
+	static THEME_ID = "themeId";
+}
 
-export const StatusCode = {
-	Pending: "Pending",
-	Done: "Done",
-	Failed: "Failed",
-	Success: "Success",
-};
+export class StatusCode {
+	static PENDING = "Pending";
+	static DONE = "Done";
+	static FAILED = "Failed";
+	static SUCCESS = "Success";
+}
 
-export const Types = {
-	Button: "button",
-	Date: "date",
-	Email: "email",
-	Password: "password",
-	Current_password: "current-password",
-	New_password: "new-password",
-	Submit: "submit",
-	Text: "text",
-};
+export class Types {
+	static BUTTON = "button";
+	static DATE = "date";
+	static EMAIL = "email";
+	static PASSWORD = "password";
+	static CURRENT_PASSWORD = "current-password";
+	static NEW_PASSWORD = "new-password";
+	static SUBMIT = "submit";
+	static TEXT = "text";
+}
 
-export const Listener = {
-	MouseDown: "mousedown",
-	TouchStart: "touchstart",
-};
+export class Listener {
+	static MOUSEDOWN = "mousedown";
+	static TOUCHSTART = "touchstart";
+}
 
 export const Symbol = {
 	Apostrophe: {

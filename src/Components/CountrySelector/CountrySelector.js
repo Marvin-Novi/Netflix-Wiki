@@ -1,11 +1,11 @@
 import React, { useState, useEffect } from "react";
-import { string } from "../../Constants/Data";
+import { String } from "../../Constants/Data";
 import { Id } from "../../Constants/Css";
 import { handleErrorAsync } from "../../Firebase/FirebaseEntitiesContext";
 import { LogTypes } from "../../Firebase/FirebaseEntities";
 
 function CountrySelector(props) {
-	const [selected, setSelected] = useState(string.Empty);
+	const [selected, setSelected] = useState(String.Empty);
 
 	useEffect(() => {
 		try {
@@ -34,8 +34,8 @@ function CountrySelector(props) {
 				{props.Items ? (
 					props.Items.map((item, index) => {
 						return (
-							<option id={`${Id.opt_id}${index}`} key={`${Id.opt_key}${index}`} value={JSON.stringify(item)}>
-								{string.Space}
+							<option id={`${Id.OPT_ID}${index}`} key={`${Id.OPT_KEY}${index}`} value={JSON.stringify(item)}>
+								{String.Space}
 								{item.country}
 							</option>
 						);

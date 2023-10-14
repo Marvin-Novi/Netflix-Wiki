@@ -22,40 +22,40 @@ function App() {
       <TopMenu />
       <main>
         <Switch>  
-          <Route exact path={Routes.Home}>
+          <Route exact path={Routes.HOME}>
             <Home />
           </Route>
-          <Route path={Routes.RegisterParams} >
+          <Route path={Routes.REGISTER_PARAMS} >
             <Register />
           </Route>
-          <Route exact path={Routes.Browse}>
+          <Route exact path={Routes.BROWSE}>
             <Browse />
           </Route>
-          <Route path={Routes.AccountDelete}>
+          <Route path={Routes.ACCOUNT_DELETE}>
             <AccountDelete />
           </Route>
-          <Route path={Routes.Login}>
+          <Route path={Routes.LOGIN}>
             <Login />
           </Route>
-          <Route path={Routes.Logout}>
+          <Route path={Routes.LOGOUT}>
             <Logout />
           </Route>
-          <Route path={Routes.Profile}>
+          <Route path={Routes.PROFILE}>
             <Profile />
           </Route>
-          <Route path={Routes.PasswordUpdate}>
+          <Route path={Routes.PASSWORD_UPDATE}>
             <PasswordUpdate/>
           </Route>
-          <Route path={Routes.Search}>
+          <Route path={Routes.SEARCH}>
             <Search/>
           </Route>
-          <Route path={Routes.ProductDetails}>
+          <Route path={Routes.PRODUCT_DETAILS}>
             <ProductDetails/>
           </Route>
-          <Route path={Routes.AboutUs}>
+          <Route path={Routes.ABOUT_US}>
             <AboutUs/>
           </Route>
-          <Route path={Routes.Contact}>
+          <Route path={Routes.CONTACT}>
             <Contact/>
           </Route>
         </Switch>

@@ -3,7 +3,7 @@ import { Class } from "../../Constants/Css";
 
 function CustomLink(props) {
 	return (
-		<Link className={Class.link} to={props.To}>
+		<Link className={Class.LINK} to={props.To}>
 			{props.Title}
 		</Link>
 	);

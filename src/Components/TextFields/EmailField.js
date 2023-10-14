@@ -9,9 +9,9 @@ function EmailField(props) {
 			{props.DisplayName}
 			<input
 				id={props.Id}
-				autoComplete={Types.Email}
-				className={`${Class.textfield} ${props.Class}`}
-				type={Types.Email}
+				autoComplete={Types.EMAIL}
+				className={`${Class.TEXTFIELD} ${props.Class}`}
+				type={Types.EMAIL}
 				placeholder={Text.Emailaddress}
 				value={props.Value}
 				onInput={(e) => props.OnInput(e.target.value)}

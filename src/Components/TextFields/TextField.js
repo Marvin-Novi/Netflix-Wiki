@@ -8,8 +8,8 @@ function TextField(props) {
 			{props.DisplayName}
 			<input
 				id={props.Id}
-				className={Class.textfield}
-				type={Types.Text}
+				className={Class.TEXTFIELD}
+				type={Types.TEXT}
 				placeholder={props.Placeholder}
 				value={props.Value}
 				onInput={(e) => props.OnInput(e.target.value)}

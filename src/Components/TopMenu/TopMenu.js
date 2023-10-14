@@ -17,7 +17,7 @@ function TopMenu() {
 	useEffect(() => {
 		try {
 			if (authState.user) {
-				handleNavigation(Routes.Browse);
+				handleNavigation(Routes.BROWSE);
 			}
 		} catch (error) {
 			handleErrorAsync(LogTypes.Error, error);
@@ -30,9 +30,9 @@ function TopMenu() {
 	}
 
 	return (
-		<div className={Class.topmenu}>
-			<div id={Id.logo_area} onClick={() => handleNavigation(authState.user ? Routes.Browse : Routes.Home)}>
-				<img src={Logo} className={Class.App_logo} alt={Text.Logo} />
+		<div className={Class.TOPMENU}>
+			<div id={Id.LOGO_AREA} onClick={() => handleNavigation(authState.user ? Routes.BROWSE : Routes.HOME)}>
+				<img src={Logo} className={Class.APP_LOGO} alt={Text.Logo} />
 			</div>
 			<Navbar />
 		</div>

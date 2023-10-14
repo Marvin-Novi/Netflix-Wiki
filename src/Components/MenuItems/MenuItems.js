@@ -6,6 +6,7 @@ import { Listener, Types } from "../../Constants/Environment";
 import { Class, Aria } from "../../Constants/Css";
 import { handleErrorAsync } from "../../Firebase/FirebaseEntitiesContext";
 import { LogTypes } from "../../Firebase/FirebaseEntities";
+import { Bool } from "../../Constants/Data";
 
 function MenuItems({ items, depthLevel }) {
 	const [dropdown, setDropdown] = useState(false);
@@ -24,16 +25,16 @@ function MenuItems({ items, depthLevel }) {
 		};
 
 		try {
-			document.addEventListener(Listener.MouseDown, handler);
-			document.addEventListener(Listener.TouchStart, handler);
+			document.addEventListener(Listener.MOUSEDOWN, handler);
+			document.addEventListener(Listener.TOUCHSTART, handler);
 		} catch (error) {
 			handleErrorAsync(LogTypes.Error, error);
 		}
 
 		return () => {
 			// Cleanup the event listener
-			document.removeEventListener(Listener.MouseDown, handler);
-			document.removeEventListener(Listener.TouchStart, handler);
+			document.removeEventListener(Listener.MOUSEDOWN, handler);
+			document.removeEventListener(Listener.TOUCHSTART, handler);
 		};
 	}, [dropdown]);
 
@@ -50,20 +51,20 @@ function MenuItems({ items, depthLevel }) {
 	};
 
 	return (
-		<li className={Class.menu_items} ref={ref} onMouseEnter={onMouseEnter} onMouseLeave={onMouseLeave} onClick={closeDropdown}>
+		<li className={Class.MENU_ITEMS} ref={ref} onMouseEnter={onMouseEnter} onMouseLeave={onMouseLeave} onClick={closeDropdown}>
 			{items.url && items.submenu ? (
 				<>
-					<button type={Types.Button} aria-haspopup={Aria.menu} aria-expanded={dropdown ? Aria.true : Aria.false} onClick={() => setDropdown((prev) => !prev)}>
+					<button type={Types.BUTTON} aria-haspopup={Aria.MENU} aria-expanded={dropdown ? Bool.TRUE : Bool.FALSE} onClick={() => setDropdown((prev) => !prev)}>
 						{window.innerWidth < 960 && depthLevel === 0 ? items.title : <Link to={items.url}>{items.title}</Link>}
 
-						{depthLevel > 0 && window.innerWidth < 960 ? null : depthLevel > 0 && window.innerWidth > 960 ? <span>&raquo;</span> : <span className={Class.arrow} />}
+						{depthLevel > 0 && window.innerWidth < 960 ? null : depthLevel > 0 && window.innerWidth > 960 ? <span>&raquo;</span> : <span className={Class.ARROW} />}
 					</button>
 					<Dropdown depthLevel={depthLevel} submenus={items.submenu} dropdown={dropdown} />
 				</>
 			) : !items.url && items.submenu ? (
 				<>
-					<button type={Types.Button} aria-haspopup={Aria.menu} aria-expanded={dropdown ? Aria.true : Aria.false} onClick={() => setDropdown((prev) => !prev)}>
-						{items.title} {depthLevel > 0 ? <span>&raquo;</span> : <span className={Class.arrow} />}
+					<button type={Types.BUTTON} aria-haspopup={Aria.MENU} aria-expanded={dropdown ? Bool.TRUE : Bool.FALSE} onClick={() => setDropdown((prev) => !prev)}>
+						{items.title} {depthLevel > 0 ? <span>&raquo;</span> : <span className={Class.ARROW} />}
 					</button>
 					<Dropdown depthLevel={depthLevel} submenus={items.submenu} dropdown={dropdown} />
 				</>

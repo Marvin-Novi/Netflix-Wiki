@@ -3,7 +3,7 @@ import React, { useContext, useEffect, useState, useCallback } from "react";
 import { useHistory } from "react-router-dom";
 import { AuthenticationStateContext } from "../../Contexts/AuthenticationStateProvider";
 import TextField from "../../Components/TextFields/TextField";
-import { Keys, Routes, StatusCode, Types } from "../../Constants/Environment";
+import { LocalStorageKeys, Routes, StatusCode, Types } from "../../Constants/Environment";
 import GenderSelector from "../../Components/GenderSelector/GenderSelector";
 import DateSelector from "../../Components/DateSelector/DateSelector";
 import Button from "../../Components/Button/Button";
@@ -15,19 +15,19 @@ import EditForm from "../../Components/EditForm/EditForm";
 import CountrySelector from "../../Components/CountrySelector/CountrySelector";
 import CustomLink from "../../Components/Base/CustomLink";
 import { RapidApi } from "../../Constants/Messages";
-import { string } from "../../Constants/Data";
+import { String } from "../../Constants/Data";
 import { Class, Id } from "../../Constants/Css";
 
 function Profile() {
 	const history = useHistory();
 	const { logout, ...authState } = useContext(AuthenticationStateContext);
 
-	let [firstname, setFirstname] = useState(string.Empty);
-	let [surname, setSurname] = useState(string.Empty);
-	let [gender, setGender] = useState(string.Empty);
-	let [country, setCountry] = useState(string.Empty);
-	let [birthdate, setBirthdate] = useState(string.Empty);
-	let [errorMessage, setErrorMessage] = useState(string.Empty);
+	let [firstname, setFirstname] = useState(String.Empty);
+	let [surname, setSurname] = useState(String.Empty);
+	let [gender, setGender] = useState(String.Empty);
+	let [country, setCountry] = useState(String.Empty);
+	let [birthdate, setBirthdate] = useState(String.Empty);
+	let [errorMessage, setErrorMessage] = useState(String.Empty);
 	let [countries, setCountries] = useState([]);
 
 	const handleNavigation = useCallback(
@@ -40,10 +40,10 @@ function Profile() {
 
 	useEffect(() => {
 		if (!authState?.user?.uid) {
-			handleNavigation(Routes.Login);
+			handleNavigation(Routes.LOGIN);
 		} else if (!firstname && !surname && !gender && !birthdate && !country) {
 			getAccount(authState.user.uid).then((response) => {
-				if (response?.Result && response?.Status === StatusCode.Success) {
+				if (response?.Result && response?.Status === StatusCode.SUCCESS) {
 					let account = response.Result;
 					setFirstname(account.firstname);
 					setSurname(account.surname);
@@ -53,7 +53,7 @@ function Profile() {
 			});
 
 			getCountry(authState.user.uid).then((response) => {
-				if (response?.Result && response?.Status === StatusCode.Success) {
+				if (response?.Result && response?.Status === StatusCode.SUCCESS) {
 					let countryItem = response.Result;
 					setCountry(countryItem);
 				}
@@ -71,44 +71,44 @@ function Profile() {
 		if (window.confirm(Text.Proceed)) {
 			let accountResult = await updateAccountAsync(authState?.user?.uid, firstname, surname, gender, birthdate);
 
-			if (accountResult?.Status !== StatusCode.Success) {
+			if (accountResult?.Status !== StatusCode.SUCCESS) {
 				setErrorMessage(accountResult?.Status);
 				return;
 			}
 
 			let countryResult = await updateCountryAsync(authState?.user?.uid, country.country, country.countrycode, country.id);
 
-			if (countryResult?.Status !== StatusCode.Success) {
+			if (countryResult?.Status !== StatusCode.SUCCESS) {
 				setErrorMessage(countryResult?.Status);
 				return;
 			}
-			localStorage.setItem(Keys.countryId, country.id);
+			localStorage.setItem(LocalStorageKeys.COUNTRY_ID, country.id);
 
 			alert(Text.Profile_update);
 
-			handleNavigation(Routes.Browse);
+			handleNavigation(Routes.BROWSE);
 			window.location.reload();
 		}
 	}
 
 	return (
-		<div className={Class.account}>
-			<header className={Class.txt_center}></header>
+		<div className={Class.ACCOUNT}>
+			<header className={Class.TXT_CENTER}></header>
 			<section>
 				<EditForm
 					OnSubmit={(e) => {
 						e.preventDefault();
 						handleUpdate();
 					}}>
-					<TextField Id={Id.firstname} DisplayName={Text.Firstname} Placeholder={Text.Firstname} Value={firstname} OnInput={setFirstname} />
-					<TextField Id={Id.surname} DisplayName={Text.Surname} Placeholder={Text.Surname} Value={surname} OnInput={setSurname} />
-					<GenderSelector Id={Id.gender} DisplayName={Text.Gender} Value={gender} OnChange={setGender} />
-					<DateSelector Id={Id.birthdate} DisplayName={Text.Birthdate} Value={birthdate} OnChange={setBirthdate} />
-					<CountrySelector Id={Id.country} DisplayName={Text.Country} Value={country} Items={countries} OnChange={setCountry} />
-					<Button Class={Class.btn_primary} Text={Text.Update} Type={Types.Submit} />
-					<Button Class={Class.btn_secondary} Text={Text.Previous_page} Type={Types.Button} OnClick={() => history.goBack()} />
-					<Button Class={Class.btn_secondary} Text={Text.Change_password} Type={Types.Button} OnClick={() => handleNavigation(Routes.PasswordUpdate)} />
-					<CustomLink Title={Text.Delete_account} To={Routes.AccountDelete} />
+					<TextField Id={Id.FIRSTNAME} DisplayName={Text.Firstname} Placeholder={Text.Firstname} Value={firstname} OnInput={setFirstname} />
+					<TextField Id={Id.SURNAME} DisplayName={Text.Surname} Placeholder={Text.Surname} Value={surname} OnInput={setSurname} />
+					<GenderSelector Id={Id.GENDER} DisplayName={Text.Gender} Value={gender} OnChange={setGender} />
+					<DateSelector Id={Id.BIRTHDATE} DisplayName={Text.Birthdate} Value={birthdate} OnChange={setBirthdate} />
+					<CountrySelector Id={Id.COUNTRY} DisplayName={Text.Country} Value={country} Items={countries} OnChange={setCountry} />
+					<Button Class={Class.BTN_PRIMARY} Text={Text.Update} Type={Types.Submit} />
+					<Button Class={Class.BTN_SECONDARY} Text={Text.Previous_page} Type={Types.BUTTON} OnClick={() => history.goBack()} />
+					<Button Class={Class.BTN_SECONDARY} Text={Text.Change_password} Type={Types.BUTTON} OnClick={() => handleNavigation(Routes.PASSWORD_UPDATE)} />
+					<CustomLink Title={Text.Delete_account} To={Routes.ACCOUNT_DELETE} />
 					<ErrorField ErrorMessage={errorMessage} />
 				</EditForm>
 			</section>

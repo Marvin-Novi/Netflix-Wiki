@@ -1,68 +1,210 @@
-export const Error = {
-	All_fields_required: "Please fill in all fields.",
-	Confirmed_password_does_not_match: "The confirmed password does not seem to match thhe given password.",
-	Age_limition: "You must be older than 12 to make use of this service.",
-};
+export class Error {
+	static ALL_FIELDS__REQUIRED = "Please fill in all fields.";
+	static CONFIRMED_PASSWORD_DOES_NOT_MATCH = "The confirmed password does not seem to match the given password.";
+	static AGE_LIMITATION = "You must be older than 12 to make use of this service.";
+}
 
-export const Text = {
-	Loading: "Loading..",
-	Show_all: "Show all",
-	Results: "Results",
-	No_data_available: "No data available",
-	Emailaddress: "Emailaddress",
-	Logo: "Logo",
-	Delete_account: "Delete account",
-	Delete: "Delete",
-	Previous_page: "Previous page",
-	Proceed: "Are you sure you want to proceed?",
-	Current_password: "Current password",
-	Password: "Password",
-	Confirm_password: "Confirm password",
-	Update: "Update",
-	Firstname: "Firstname",
-	Surname: "Surname",
-	Gender: "Gender",
-	Birthdate: "Birthdate",
-	Country: "Country",
-	Register: "Register",
-	Password_updated: "Your password has succesfully been updated.",
-	Profile_update: "Your profile has succesfully been updated.",
-	Change_password: "Change password",
-	Login: "Login",
-	Pending: "Pending",
-	Home_H1: "Unlimited information about the available movies on Netflix.",
-	Home_Description: "Cancel at any time.Ready? Enter your email to create or restart your membership.",
-	Loading_account: "Loading account...",
-	Greet: "Hello",
-	Credentials: "Login failed",
-	Cover: "Cover",
-	Summary: "Summary",
-	Votes: "Votes",
-	Search_: "Search..",
-	Search: "Search",
-	Searchresults: "Searchresults ",
-	Browse: "Browse",
-	About_us: "About us",
-	Contact: "Contact",
-	Log_out: "Log out",
-	Profile: "Profile",
-	Message: "Message",
-	Subject: "Subject",
-	Send: "Send",
-	Background: "Background",
-	Ticket_logged: "Ticket has been logged with id:",
-	Dark: "Dark",
-	Light: "Light"
-};
+export class Firebase {
+	static PREFIX = "auth/";
+	static DEFAULT = "Something went wrong.";
+	static FAILED = "Failed";
+}
 
-export const Firebase = {
-	Prefix: "auth/",
-	Default: "Something went wrong.",
-	Failed: "Failed",
-	Success: "Success",
-};
+export class RapidApi {
+	static DEFAULT = "Something went wrong.";
+	static Success = "Success";
+  }
 
-export const RapidApi = {
-	Default: "Something went wrong.",
-	Success: "Success",
-};
+export class Text {
+	static get Loading() {
+		return "Loading..";
+	}
+
+	static get Show_all() {
+		return "Show all";
+	}
+
+	static get Results() {
+		return "Results";
+	}
+
+	static get No_data_available() {
+		return "No data available";
+	}
+
+	static get Emailaddress() {
+		return "Emailaddress";
+	}
+
+	static get Logo() {
+		return "Logo";
+	}
+
+	static get Delete_account() {
+		return "Delete account";
+	}
+
+	static get Delete() {
+		return "Delete";
+	}
+
+	static get Previous_page() {
+		return "Previous page";
+	}
+
+	static get Proceed() {
+		return "Are you sure you want to proceed?";
+	}
+
+	static get Current_password() {
+		return "Current password";
+	}
+
+	static get Password() {
+		return "Password";
+	}
+
+	static get Confirm_password() {
+		return "Confirm password";
+	}
+
+	static get Update() {
+		return "Update";
+	}
+
+	static get Firstname() {
+		return "Firstname";
+	}
+
+	static get Surname() {
+		return "Surname";
+	}
+
+	static get Gender() {
+		return "Gender";
+	}
+
+	static get Birthdate() {
+		return "Birthdate";
+	}
+
+	static get Country() {
+		return "Country";
+	}
+
+	static get Register() {
+		return "Register";
+	}
+
+	static get Password_updated() {
+		return "Your password has successfully been updated.";
+	}
+
+	static get Profile_update() {
+		return "Your profile has successfully been updated.";
+	}
+
+	static get Change_password() {
+		return "Change password";
+	}
+
+	static get Login() {
+		return "Login";
+	}
+
+	static get Pending() {
+		return "Pending";
+	}
+
+	static get Home_H1() {
+		return "Unlimited information about the available movies on Netflix.";
+	}
+
+	static get Home_Description() {
+		return "Cancel at any time. Ready? Enter your email to create or restart your membership.";
+	}
+
+	static get Loading_account() {
+		return "Loading account...";
+	}
+
+	static get Greet() {
+		return "Hello";
+	}
+
+	static get Credentials() {
+		return "Login failed";
+	}
+
+	static get Cover() {
+		return "Cover";
+	}
+
+	static get Summary() {
+		return "Summary";
+	}
+
+	static get Votes() {
+		return "Votes";
+	}
+
+	static get Search_() {
+		return "Search..";
+	}
+
+	static get Search() {
+		return "Search";
+	}
+
+	static get Searchresults() {
+		return "Search results ";
+	}
+
+	static get Browse() {
+		return "Browse";
+	}
+
+	static get About_us() {
+		return "About us";
+	}
+
+	static get Contact() {
+		return "Contact";
+	}
+
+	static get Log_out() {
+		return "Log out";
+	}
+
+	static get Profile() {
+		return "Profile";
+	}
+
+	static get Message() {
+		return "Message";
+	}
+
+	static get Subject() {
+		return "Subject";
+	}
+
+	static get Send() {
+		return "Send";
+	}
+
+	static get Background() {
+		return "Background";
+	}
+
+	static get Ticket_logged() {
+		return "Ticket has been logged with id:";
+	}
+
+	static get Dark() {
+		return "Dark";
+	}
+
+	static get Light() {
+		return "Light";
+	}
+}

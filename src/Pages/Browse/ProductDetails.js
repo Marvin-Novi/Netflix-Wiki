@@ -8,7 +8,7 @@ import { Routes, Symbol, Types } from "../../Constants/Environment";
 import { getDetailsById } from "../../Data/RapidApi";
 import { RapidApi, Text } from "../../Constants/Messages";
 import Button from "../../Components/Button/Button";
-import { string } from "../../Constants/Data";
+import { String} from "../../Constants/Data";
 import { handleErrorAsync } from "../../Firebase/FirebaseEntitiesContext";
 import { LogTypes } from "../../Firebase/FirebaseEntities";
 import { Class } from "../../Constants/Css";
@@ -19,7 +19,7 @@ function ProductDetails(props) {
 	const history = useHistory();
 	const { ...authState } = useContext(AuthenticationStateContext);
 	let [data, setData] = useState({});
-	let [errorMessage, setErrorMessage] = useState(string.Empty);
+	let [errorMessage, setErrorMessage] = useState(String.Empty);
 	let [isLoading, setIsLoading] = useState(false);
 
 	const handleNavigation = useCallback(
@@ -37,7 +37,7 @@ function ProductDetails(props) {
 			setIsLoading(true);
 
 			if (!authState.user) {
-				handleNavigation(Routes.Login);
+				handleNavigation(Routes.LOGIN);
 			} else {
 				const fetchData = async () => {
 					try {
@@ -45,10 +45,10 @@ function ProductDetails(props) {
 						if (response.Status === RapidApi.Success) {
 							setData(response.Result);
 						} else {
-							setErrorMessage(RapidApi.Default);
+							setErrorMessage(RapidApi.DEFAULT);
 						}
 					} catch (e) {
-						setErrorMessage(RapidApi.Default);
+						setErrorMessage(RapidApi.DEFAULT);
 					}
 				};
 
@@ -63,28 +63,28 @@ function ProductDetails(props) {
 		}
 	}, [handleNavigation, setIsLoading, isLoading, data, netflix_id, authState]);
 
-	let title = data?.title?.replace(Symbol.Apostrophe.code, Symbol.Apostrophe.sign) ?? string.Empty;
+	let title = data?.title?.replace(Symbol.Apostrophe.code, Symbol.Apostrophe.sign) ?? String.Empty;
 
 	if (isLoading)
 		return (
-			<div className={Class.browse}>
-				<CategoryMenu Prefix={Routes.Browse} />
-				<section className={Class.main_container}>
-					<div className={Class.card_container}>
-						<img className={Class.spinner} src={LoadingSpinner} alt={Text.Loading} />
+			<div className={Class.BROWSE}>
+				<CategoryMenu Prefix={Routes.BROWSE} />
+				<section className={Class.MAIN_CONTAINER}>
+					<div className={Class.CARD_CONTAINER}>
+						<img className={Class.SPINNER} src={LoadingSpinner} alt={Text.Loading} />
 					</div>
 				</section>
 			</div>
 		);
 
 	return (
-		<div className={Class.browse}>
-			<section className={Class.main_container}>
-				<div className={Class.card_container}>
+		<div className={Class.BROWSE}>
+			<section className={Class.MAIN_CONTAINER}>
+				<div className={Class.CARD_CONTAINER}>
 					{Object.keys(data).length !== 0 && !errorMessage ? (
-						<div className={Class.card}>
-							<img className={Class.col} src={data.large_image} alt={Text.Cover} />
-							<div className={`${Class.inner_container} ${Class.col}`}>
+						<div className={Class.CARD}>
+							<img className={Class.COL} src={data.large_image} alt={Text.Cover} />
+							<div className={`${Class.INNER_CONTAINER} ${Class.COL}`}>
 								<h2>
 									<b>{title}</b>
 								</h2>
@@ -97,13 +97,13 @@ function ProductDetails(props) {
 								<p>
 									{data.alt_votes} {Text.Votes}
 								</p>
-								<Button Class={Class.btn_primary} Text={Text.Previous_page} Type={Types.Button} OnClick={() => history.goBack()} />
+								<Button Class={Class.BTN_PRIMARY} Text={Text.Previous_page} Type={Types.BUTTON} OnClick={() => history.goBack()} />
 							</div>
 						</div>
 					) : Object.keys(data).length === 0 && errorMessage ? (
-						<p className={Class.errorMessage}>{errorMessage}</p>
+						<p className={Class.ERRORMESSAGE}>{errorMessage}</p>
 					) : (
-						<p className={Class.errorMessage}>{Text.No_data_available}</p>
+						<p className={Class.ERRORMESSAGE}>{Text.No_data_available}</p>
 					)}
 				</div>
 			</section>

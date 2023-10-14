@@ -2,7 +2,7 @@ import React, { createContext, useEffect, useState } from "react";
 import { getAuth, onAuthStateChanged } from "firebase/auth";
 import { handleErrorAsync, login, logout } from "../Firebase/FirebaseEntitiesContext";
 import { Text } from "../Constants/Messages";
-import { Keys, StatusCode } from "../Constants/Environment";
+import { LocalStorageKeys, StatusCode } from "../Constants/Environment";
 import { LogTypes } from "../Firebase/FirebaseEntities";
 
 export const AuthenticationStateContext = createContext(null);
@@ -10,7 +10,7 @@ export const AuthenticationStateContext = createContext(null);
 function AuthenticationStateProvider({ children }) {
 	const [authState, setAuthState] = useState({
 		user: null,
-		status: StatusCode.Pending,
+		status: StatusCode.PENDING,
 	});
 
 	useEffect(() => {
@@ -21,12 +21,12 @@ function AuthenticationStateProvider({ children }) {
 				if (user) {
 					setAuthState({
 						user: user,
-						status: StatusCode.Done,
+						status: StatusCode.DONE,
 					});
 				} else {
 					setAuthState({
 						user: null,
-						status: StatusCode.Done,
+						status: StatusCode.DONE,
 					});
 				}
 			});
@@ -38,11 +38,11 @@ function AuthenticationStateProvider({ children }) {
 	async function handleLogin(email, password) {
 		setAuthState({
 			user: null,
-			status: StatusCode.Pending,
+			status: StatusCode.PENDING,
 		});
 
 		await login(email, password).then((result) => {
-			if (result?.Status === StatusCode.Success) {
+			if (result?.Status === StatusCode.SUCCESS) {
 				setAuthState({
 					user: result.Result,
 					status: result.Status,
@@ -52,20 +52,20 @@ function AuthenticationStateProvider({ children }) {
 
 			setAuthState({
 				user: null,
-				status: StatusCode.Done,
+				status: StatusCode.DONE,
 			});
 			return false;
 		});
 	}
 
 	function handleLogout() {
-		localStorage.removeItem(Keys.countryId);
+		localStorage.removeItem(LocalStorageKeys.COUNTRY_ID);
 		let result = logout();
 
 		if (result) {
 			setAuthState({
 				user: null,
-				status: StatusCode.Done,
+				status: StatusCode.DONE,
 			});
 			return true;
 		} else {
@@ -79,7 +79,7 @@ function AuthenticationStateProvider({ children }) {
 		logout: handleLogout,
 	};
 
-	return <AuthenticationStateContext.Provider value={data}>{authState.status === StatusCode.Pending ? <p>{Text.Loading}</p> : children}</AuthenticationStateContext.Provider>;
+	return <AuthenticationStateContext.Provider value={data}>{authState.status === StatusCode.PENDING ? <p>{Text.Loading}</p> : children}</AuthenticationStateContext.Provider>;
 }
 
 export default AuthenticationStateProvider;

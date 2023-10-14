@@ -10,8 +10,8 @@ import { RapidApi, Text } from "../../Constants/Messages";
 import { getCountry, handleErrorAsync } from "../../Firebase/FirebaseEntitiesContext";
 import CountrySelector from "../../Components/CountrySelector/CountrySelector";
 import ProductGallery from "../../Components/ProductComponents/ProductGallery";
-import { Keys } from "../../Constants/Environment";
-import { string } from "../../Constants/Data";
+import { LocalStorageKeys } from "../../Constants/Environment";
+import { String} from "../../Constants/Data";
 import { Class, Id } from "../../Constants/Css";
 import { LogTypes } from "../../Firebase/FirebaseEntities";
 import { Rapid_Keys } from "../../Data/RapidApiEntities";
@@ -20,7 +20,7 @@ function Browse() {
 	const history = useHistory();
 	const { ...authState } = useContext(AuthenticationStateContext);
 	const { setSelectedCountry } = useContext(ScopedContext);
-	let [country, setCountry] = useState(string.Empty);
+	let [country, setCountry] = useState(String.Empty);
 	let [countries, setCountries] = useState([]);
 	let [data, setData] = useState([]);
 	let [movies, setMovies] = useState([]);
@@ -38,9 +38,9 @@ function Browse() {
 
 	const scrollToLocation = () => {
 		const { hash } = window.location;
-		if (hash !== string.Empty) {
+		if (hash !== String.Empty) {
 			let retries = 0;
-			const id = hash.replace(Symbol.Hash, string.Empty);
+			const id = hash.replace(Symbol.Hash, String.Empty);
 			const scroll = () => {
 				retries += 0;
 				if (retries > 50) return;
@@ -59,7 +59,7 @@ function Browse() {
 		async (countryItem) => {
 			try {
 				setIsLoading(true);
-				localStorage.setItem(Keys.countryId, countryItem.id);
+				localStorage.setItem(LocalStorageKeys.COUNTRY_ID, countryItem.id);
 				setSelectedCountry(countryItem);
 				setCountry(countryItem);
 				setData([]);
@@ -81,7 +81,7 @@ function Browse() {
 	useEffect(() => {
 		try {
 			if (!authState.user) {
-				handleNavigation(Routes.Login);
+				handleNavigation(Routes.LOGIN);
 			} else {
 				const fetchData = async () => {
 					let countriesResult = await getAllCountries();
@@ -92,7 +92,7 @@ function Browse() {
 
 					try {
 						//get cached country (id)
-						let cachedCountryId = parseInt(localStorage.getItem(Keys.countryId));
+						let cachedCountryId = parseInt(localStorage.getItem(LocalStorageKeys.COUNTRY_ID));
 
 						if (cachedCountryId) {
 							let cachedCountry = countriesResult.Result.find((x) => x.id === cachedCountryId);
@@ -109,14 +109,14 @@ function Browse() {
 					//Else get usercountry from db
 					let countryResponse = await getCountry(authState.user.uid);
 
-					if (countryResponse.Status === StatusCode.Success) {
+					if (countryResponse.Status === StatusCode.SUCCESS) {
 						let countryValue = countriesResult.Result.find((x) => x.id === countryResponse.Result.id);
 						switchDataAsync(countryValue);
 					}
 				};
 				
 				//If countries is filled then data is already filled
-				if (countries.length === 0 && country === string.Empty) {
+				if (countries.length === 0 && country === String.Empty) {
 					
 					fetchData();
 					scrollToLocation();
@@ -133,21 +133,21 @@ function Browse() {
 	}
 
 	return (
-		<div className={Class.browse}>
+		<div className={Class.BROWSE}>
 			<CategoryMenu />
-			<section className={Class.main_container}>
-				<CountrySelector Id={Id.country} DisplayName={Text.Country} Value={country} Items={countries ?? [{}]} OnChange={async (value) => switchDataAsync(value)} />
+			<section className={Class.MAIN_CONTAINER}>
+				<CountrySelector Id={Id.COUNTRY} DisplayName={Text.Country} Value={country} Items={countries ?? [{}]} OnChange={async (value) => switchDataAsync(value)} />
 				<ProductGallery
 					Id={Id.all}
-					Href={`${Routes.Search}?${Rapid_Keys.country_list}=${country?.id}&${Rapid_Keys.limit}=${country?.tvids}`}
+					Href={`${Routes.SEARCH}?${Rapid_Keys.country_list}=${country?.id}&${Rapid_Keys.limit}=${country?.tvids}`}
 					Title={!country?.country ? Text.Loading : `Available on Netflix in ${country?.country ?? 0}`}
 					Count={country?.tvids ?? 0}
 					Data={data}
 					IsLoading={isLoading}
 				/>
 				<ProductGallery
-					Id={Id.tmovs}
-					Href={`${Routes.Search}?${Rapid_Keys.country_list}=${country?.id}&${Rapid_Keys.limit}=${country?.tmovs}&${Rapid_Keys.type}=${Rapid_Keys.movie}`}
+					Id={Id.TMOVS}
+					Href={`${Routes.SEARCH}?${Rapid_Keys.country_list}=${country?.id}&${Rapid_Keys.limit}=${country?.tmovs}&${Rapid_Keys.type}=${Rapid_Keys.movie}`}
 					Title={!country?.country ? Text.Loading : `Movies in ${country?.country ?? 0}`}
 					Count={country?.tmovs ?? 0}
 					Data={movies}
@@ -155,15 +155,15 @@ function Browse() {
 				/>
 				<ProductGallery
 					Id={Id.tseries}
-					Href={`${Routes.Search}?${Rapid_Keys.country_list}=${country?.id}&${Rapid_Keys.limit}=${country?.tseries}&${Rapid_Keys.type}=${Rapid_Keys.series}`}
+					Href={`${Routes.SEARCH}?${Rapid_Keys.country_list}=${country?.id}&${Rapid_Keys.limit}=${country?.tseries}&${Rapid_Keys.type}=${Rapid_Keys.series}`}
 					Title={!country?.country ? Text.Loading : `Series in ${country?.country ?? 0}`}
 					Count={country?.tseries ?? 0}
 					Data={series}
 					IsLoading={isLoading}
 				/>
 				<ProductGallery
-					Id={Id.expiring}
-					Href={`${Routes.Search}?${Rapid_Keys.country_list}=${country?.id}&${Rapid_Keys.limit}=${country?.expiring}&${Rapid_Keys.expiring}=${Rapid_Keys.true}`}
+					Id={Id.EXPIRING}
+					Href={`${Routes.SEARCH}?${Rapid_Keys.country_list}=${country?.id}&${Rapid_Keys.limit}=${country?.expiring}&${Rapid_Keys.expiring}=${Rapid_Keys.true}`}
 					Title={!country?.country ? Text.Loading : `Expiring in ${country?.country ?? 0}`}
 					Count={country?.expiring ?? 0}
 					Data={expiring}

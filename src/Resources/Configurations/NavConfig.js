@@ -4,28 +4,28 @@ import { Text } from "../../Constants/Messages";
 export const menuItems = [
     {
       title: Text.Browse,
-      url: Routes.Browse,
+      url: Routes.BROWSE,
     },
     {
       title: Text.Profile,
-      url: Routes.Profile,
+      url: Routes.PROFILE,
       submenu: [
         {
           title: Text.Profile,
-          url: Routes.Profile,
+          url: Routes.PROFILE,
         },     
         {
           title: Text.Log_out,
-          url: Routes.Logout,
+          url: Routes.LOGOUT,
         }
       ]
     },
     {
       title: Text.About_us,
-      url: Routes.AboutUs,
+      url: Routes.ABOUT_US,
     },
     {
       title: Text.Contact,
-      url: Routes.Contact,
+      url: Routes.CONTACT,
     }
   ];

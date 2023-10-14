@@ -1,13 +1,13 @@
 import "./Dropdown.css";
 import MenuItems from "../MenuItems/MenuItems";
 import { Class } from "../../Constants/Css";
-import { string } from "../../Constants/Data";
+import { String } from "../../Constants/Data";
 
 function Dropdown({ submenus, dropdown, depthLevel }) {
 	depthLevel = depthLevel + 1;
-	const dropdownClass = depthLevel > 1 ? Class.dropdown_Submenu : string.Empty;
+	const dropdownClass = depthLevel > 1 ? Class.DROPDOWN_SUBMENU : String.Empty;
 	return (
-		<ul className={`${Class.dropdown} ${dropdownClass} ${dropdown ? Class.show : string.Empty}`}>
+		<ul className={`${Class.DROPDOWN} ${dropdownClass} ${dropdown ? Class.SHOW : String.Empty}`}>
 			{submenus.map((submenu, index) => (
 				<MenuItems items={submenu} key={index} depthLevel={depthLevel} />
 			))}

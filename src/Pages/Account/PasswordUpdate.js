@@ -10,7 +10,7 @@ import { changePassword, handleErrorAsync, login } from "../../Firebase/Firebase
 import { Text } from "../../Constants/Messages";
 import EditForm from "../../Components/EditForm/EditForm";
 import EmailField from "../../Components/TextFields/EmailField";
-import { string } from "../../Constants/Data";
+import { String} from "../../Constants/Data";
 import { Class, Id } from "../../Constants/Css";
 import { LogTypes } from "../../Firebase/FirebaseEntities";
 
@@ -18,15 +18,15 @@ function PasswordUpdate() {
 	const history = useHistory();
 	const { logout, ...authState } = useContext(AuthenticationStateContext);
 
-	let [currentPassword, setCurrentPassword] = useState(string.Empty);
-	let [newPassword, setNewPassword] = useState(string.Empty);
-	let [confirmedPassword, setConfirmedPassword] = useState(string.Empty);
-	let [errorMessage, setErrorMessage] = useState(string.Empty);
+	let [currentPassword, setCurrentPassword] = useState(String.Empty);
+	let [newPassword, setNewPassword] = useState(String.Empty);
+	let [confirmedPassword, setConfirmedPassword] = useState(String.Empty);
+	let [errorMessage, setErrorMessage] = useState(String.Empty);
 
 	useEffect(() => {
 		try {
 			if (!authState.user) {
-				handleNavigation(Routes.Login);
+				handleNavigation(Routes.LOGIN);
 			}
 		} catch (error) {
 			handleErrorAsync(LogTypes.Error, error);
@@ -43,12 +43,12 @@ function PasswordUpdate() {
 			setErrorMessage(null);
 			if (window.confirm(Text.Proceed)) {
 				login(authState.user.email, currentPassword).then(async (response) => {
-					if (response.Result && response.Status === StatusCode.Success) {
+					if (response.Result && response.Status === StatusCode.SUCCESS) {
 						await changePassword(authState.user, newPassword, confirmedPassword)
 							.then((result) => {
-								if (result?.Status === StatusCode.Success) {
+								if (result?.Status === StatusCode.SUCCESS) {
 									alert(Text.Password_updated);
-									handleNavigation(Routes.Browse);
+									handleNavigation(Routes.BROWSE);
 								} else {
 									setErrorMessage(result?.Status);
 								}
@@ -67,8 +67,8 @@ function PasswordUpdate() {
 	}
 
 	return (
-		<div className={Class.account}>
-			<header className={Class.txt_center}></header>
+		<div className={Class.ACCOUNT}>
+			<header className={Class.TXT_CENTER}></header>
 
 			<section>
 				<EditForm
@@ -76,26 +76,26 @@ function PasswordUpdate() {
 						e.preventDefault();
 						handleUpdate();
 					}}>
-					<EmailField Id={Id.emailadres} Value={authState?.user?.email} DisplayName={Text.Emailaddress} Disabled={true} />
+					<EmailField Id={Id.EMAILADRESS} Value={authState?.user?.email} DisplayName={Text.Emailaddress} Disabled={true} />
 					<PasswordField
-						Id={Id.current_password}
-						AutoComplete={Types.Current_password}
+						Id={Id.CURRENT_PASSWORD}
+						AutoComplete={Types.CURRENT_PASSWORD}
 						DisplayName={Text.Current_password}
 						Placeholder={Text.Current_password}
 						OnInput={setCurrentPassword}
 					/>
-					<PasswordField Id={Id.new_password} AutoComplete={Types.New_password} DisplayName={Text.Password} Placeholder={Text.Password} OnInput={setNewPassword} />
+					<PasswordField Id={Id.new_password} AutoComplete={Types.NEW_PASSWORD} DisplayName={Text.Password} Placeholder={Text.Password} OnInput={setNewPassword} />
 					<PasswordField
-						Id={Id.confirmed_password}
-						AutoComplete={Types.New_password}
+						Id={Id.CONFIRMED_PASSWORD}
+						AutoComplete={Types.NEW_PASSWORD}
 						DisplayName={Text.Confirm_password}
 						Placeholder={Text.Confirm_password}
 						OnInput={setConfirmedPassword}
 					/>
 					<ErrorField ErrorMessage={errorMessage} />
 
-					<Button Class={Class.btn_primary} Text={Text.Update} Type={Types.Submit} />
-					<Button Class={Class.btn_secondary} Text={Text.Previous_page} Type={Types.Button} OnClick={() => history.goBack()} />
+					<Button Class={Class.BTN_PRIMARY} Text={Text.Update} Type={Types.SUBMIT} />
+					<Button Class={Class.BTN_SECONDARY} Text={Text.Previous_page} Type={Types.BUTTON} OnClick={() => history.goBack()} />
 				</EditForm>
 			</section>
 		</div>

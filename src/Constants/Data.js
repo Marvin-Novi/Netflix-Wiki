@@ -1,10 +1,15 @@
-export const string = {
-	Empty: "",
-	Space: " ",
-};
+export class String {
+	static Empty = "";
+	static Space = " ";
+}
 
-export const genderTypes = {
-	Male: "Male",
-	Female: "Female",
-	Other: "Other",
-};
+export class GenderTypes {
+	static Male = "Male";
+	static Female = "Female";
+	static Other = "Other";
+}
+
+export class Bool {
+	static TRUE = "true";
+	static FALSE = "false";
+}

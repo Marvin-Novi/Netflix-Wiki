@@ -7,7 +7,7 @@ function ProductCard(props) {
 	let title = props?.Value?.title?.replace(Symbol.Apostrophe.code, Symbol.Apostrophe.sign);
 
 	return (
-		<Link id={props.Id} to={`${Routes.ProductDetails_Prefix}${props.Value.netflix_id}`} className={Class.productcard}>
+		<Link id={props.Id} to={`${Routes.PRODUCT_DETAILS_PREFIX}${props.Value.netflix_id}`} className={Class.PRODUCTCARD}>
 			<img src={props.Value.img} alt={title} />
 			<label>{title} </label>
 		</Link>

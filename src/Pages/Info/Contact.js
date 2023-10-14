@@ -1,7 +1,7 @@
 import "./Contact.css";
 import { Class } from "../../Constants/Css";
 import { useCallback, useState } from "react";
-import { string } from "../../Constants/Data";
+import { String} from "../../Constants/Data";
 import { Text } from "../../Constants/Messages";
 import TextField from "../../Components/TextFields/TextField";
 import ErrorField from "../../Components/Errorhandlers/ErrorField";
@@ -16,12 +16,12 @@ import { LogTypes } from "../../Firebase/FirebaseEntities";
 function Contact() {
 	const history = useHistory();
 
-	const [firstname, setFirstname] = useState(string.Empty);
-	const [surname, setSurname] = useState(string.Empty);
-	const [email, setEmail] = useState(string.Empty);
-	const [subject, setSubject] = useState(string.Empty);
-	const [message, setMessage] = useState(string.Empty);
-	const [errorMessage, setErrorMessage] = useState(string.Empty);
+	const [firstname, setFirstname] = useState(String.Empty);
+	const [surname, setSurname] = useState(String.Empty);
+	const [email, setEmail] = useState(String.Empty);
+	const [subject, setSubject] = useState(String.Empty);
+	const [message, setMessage] = useState(String.Empty);
+	const [errorMessage, setErrorMessage] = useState(String.Empty);
 
 	const handleNavigation = useCallback(
 		(path) => {
@@ -35,9 +35,9 @@ function Contact() {
 		try {
 			let response = await handleTicketAsync(email, firstname, surname, subject, message);
 
-			if (response?.Status === StatusCode.Success) {
+			if (response?.Status === StatusCode.SUCCESS) {
 				alert(`${Text.Ticket_logged} ${response.Result}`);
-				handleNavigation(Routes.Browse);
+				handleNavigation(Routes.BROWSE);
 			} else {
 				setErrorMessage(response?.Status);
 			}
@@ -47,8 +47,8 @@ function Contact() {
 	}
 
 	return (
-		<div className={Class.contact}>
-			<section className={Class.main_container}>
+		<div className={Class.CONTACT}>
+			<section className={Class.MAIN_CONTAINER}>
 				<div>
 					<h1>{Text.Contact}</h1>
 					<form
@@ -56,14 +56,14 @@ function Contact() {
 							e.preventDefault();
 							createTicketAsync();
 						}}>
-						<header className={Class.txt_center}></header>
+						<header className={Class.TXT_CENTER}></header>
 						<EmailField DisplayName={Text.Emailaddress} Placeholder={Text.Emailaddress} OnInput={setEmail} />
 						<TextField DisplayName={Text.Firstname} Placeholder={Text.Firstname} OnInput={setFirstname} />
 						<TextField DisplayName={Text.Surname} Placeholder={Text.Surname} OnInput={setSurname} />
 						<TextField DisplayName={Text.Subject} Placeholder={Text.Subject} OnInput={setSubject} />
 						<TextArea DisplayName={Text.Message} Placeholder={Text.Message} OnInput={setMessage} />
 						<ErrorField ErrorMessage={errorMessage} />
-						<Button Class={Class.btn_primary} Text={Text.Send} Type={Types.Submit} />
+						<Button Class={Class.BTN_PRIMARY} Text={Text.Send} Type={Types.SUBMIT} />
 					</form>
 				</div>
 			</section>

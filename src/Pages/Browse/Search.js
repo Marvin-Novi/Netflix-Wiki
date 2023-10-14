@@ -62,7 +62,7 @@ function Search() {
 
 	useEffect(() => {
 		if (!authState.user) {
-			handleNavigation(Routes.Login);
+			handleNavigation(Routes.LOGIN);
 		} else {
 			if (data.length === 0 && !isLoading) {
 			
@@ -79,9 +79,9 @@ function Search() {
 	}
 
 	return (
-		<div className={Class.browse}>
-			<section className={Class.main_container}>
-				<SearchGallery Id={Id.search_all} Title={`${Text.Searchresults} `} Count={data?.length ?? 0} Data={data} IsLoading={isLoading} />
+		<div className={Class.BROWSE}>
+			<section className={Class.MAIN_CONTAINER}>
+				<SearchGallery Id={Id.SEARCH_ALL} Title={`${Text.Searchresults} `} Count={data?.length ?? 0} Data={data} IsLoading={isLoading} />
 			</section>
 		</div>
 	);

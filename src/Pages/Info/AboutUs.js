@@ -4,11 +4,11 @@ import { Text } from "../../Constants/Messages";
 
 function AboutUs() {
 	return (
-		<div className={Class.about_us}>
+		<div className={Class.ABOUT_US}>
 			<h1>{Text.About_us}</h1>
-			<section className={Class.main_container}>
+			<section className={Class.MAIN_CONTAINER}>
 				<section>
-					<div className={Class.story}>
+					<div className={Class.STORY}>
 						<h2>Welcome to Netflix Wiki</h2>
 						<p>
 							Netflix Wiki is your go-to source for all things related to Netflix content available in different countries across the globe. We are a passionate team dedicated to
@@ -17,7 +17,7 @@ function AboutUs() {
 					</div>
 				</section>
 				<section>
-					<div className={Class.story}>
+					<div className={Class.STORY}>
 						<h2>Our Mission</h2>
 						<p>
 							Our mission is to make it simple for you to discover and enjoy the diverse selection of content on Netflix, no matter where you are. Whether you're a cinephile or a
@@ -26,7 +26,7 @@ function AboutUs() {
 					</div>
 				</section>
 				<section>
-					<div className={Class.story}>
+					<div className={Class.STORY}>
 						<h2>Get Involved</h2>
 						<p>
 							We encourage active participation from our community of Netflix enthusiasts. Feel free to share your thoughts, reviews, and recommendations. Your input helps us build
@@ -35,13 +35,13 @@ function AboutUs() {
 					</div>
 				</section>
 			</section>
-			<section className={`${Class.image}`}>
+			<section className={`${Class.IMAGE}`}>
 				<img
 					src="https://assets.nflxext.com/ffe/siteui/vlv3/908077b4-cf0a-43c3-b2c9-435fb990299b/0575f84c-3b70-4342-a5a1-320d374612b0/NL-en-20220829-popsignuptwoweeks-perspective_alpha_website_small.jpg"
 					alt="Banner"
 				/>
 			</section>
-			<section className={Class.summary}>
+			<section className={Class.SUMMARY}>
 				<h2>{Text.Background}</h2>
 				<summary>
 					Welcome to Netflix Wiki, the ultimate resource for everything you need to know about Netflix offerings in various countries around the world. Our website was developed as

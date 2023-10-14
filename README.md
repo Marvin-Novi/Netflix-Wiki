@@ -83,6 +83,7 @@ PLEASE MODIFY `.env` WITH YOUR OWN RAPID API KEYS AND FIREBASE KEYS!
 - `npm install jwt-decode`
 - `npm install react-table`
 - `npm install sass --save-dev`
+- `npm install jest --save-dev`
 
 # GitHub Repository:
 [Netflix-Wiki-ReactApp Repository](https://github.com/MarvinEscobar/Netflix-Wiki-ReactApp.git)

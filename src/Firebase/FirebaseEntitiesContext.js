@@ -4,16 +4,16 @@ import { doc, collection, setDoc, deleteDoc, getDoc, updateDoc, addDoc } from "f
 import { Tables, Result, LogTypes } from "./FirebaseEntities";
 import { underAgeValidate } from "../Helpers/DateHelpers";
 import { Error, Firebase } from "../Constants/Messages";
-import { string } from "../Constants/Data";
+import { String } from "../Constants/Data";
 import { Routes, StatusCode, Symbol } from "../Constants/Environment";
 
 export async function handleRegistrationAsync(email, password, firstname, surname, confirmedPassword, gender, birthdate, country, countrycode, id) {
 	if (!email || !password || !firstname || !surname || !confirmedPassword || !gender || gender === "" || !birthdate || !country || !countrycode || !id)
-		return new Result(null, Error.All_fields_required);
+		return new Result(null, Error.ALL_FIELDS__REQUIRED);
 
-	if (password !== confirmedPassword) return new Result(null, Error.Confirmed_password_does_not_match);
+	if (password !== confirmedPassword) return new Result(null, Error.CONFIRMED_PASSWORD_DOES_NOT_MATCH);
 
-	if (!underAgeValidate(birthdate)) return new Result(null, Error.Age_limition);
+	if (!underAgeValidate(birthdate)) return new Result(null, Error.AGE_LIMITION);
 
 	return createUserWithEmailAndPassword(auth, email, password)
 		.then(async (userCredential) => {
@@ -33,7 +33,7 @@ export async function handleRegistrationAsync(email, password, firstname, surnam
 				id,
 			});
 
-			return new Result(user, StatusCode.Success);
+			return new Result(user, StatusCode.SUCCESS);
 		})
 		.catch((error) => {
 			let message = ReadFireBaseErrorCode(error.code);
@@ -50,9 +50,9 @@ export async function login(email, password) {
 			const user = userCredential.user;
 
 			if (user) {
-				return new Result(user, StatusCode.Success);
+				return new Result(user, StatusCode.SUCCESS);
 			} else {
-				return new Result(user, StatusCode.Failed);
+				return new Result(user, StatusCode.FAILED);
 			}
 		})
 		.catch((error) => {
@@ -66,7 +66,7 @@ export function logout() {
 	const auth = getAuth();
 	try {
 		signOut(auth);
-		return new Result(true, StatusCode.Success);
+		return new Result(true, StatusCode.SUCCESS);
 	} catch (error) {
 		let message = ReadFireBaseErrorCode(error.code);
 		handleErrorAsync(LogTypes.Error, message);
@@ -79,7 +79,7 @@ export async function deleteAsync(user) {
 		await deleteUser(user)
 			.then(async () => {
 				await deleteDoc(doc(db, Tables.Accounts, user.uid));
-				return new Result(true, StatusCode.Success);
+				return new Result(true, StatusCode.SUCCESS);
 			})
 			.catch((error) => {
 				let message = ReadFireBaseErrorCode(error.code);
@@ -107,9 +107,9 @@ export async function getAccount(uid) {
 		const docSnap = await getDoc(docRef);
 
 		if (docSnap.exists()) {
-			return new Result(docSnap.data(), StatusCode.Success);
+			return new Result(docSnap.data(), StatusCode.SUCCESS);
 		} else {
-			return new Result(null, Firebase.Default);
+			return new Result(null, Firebase.DEFAULT);
 		}
 	} catch (error) {
 		let message = ReadFireBaseErrorCode(error.code);
@@ -124,9 +124,9 @@ export async function getCountry(uid) {
 		const docSnap = await getDoc(docRef);
 
 		if (docSnap.exists()) {
-			return new Result(docSnap.data(), StatusCode.Success);
+			return new Result(docSnap.data(), StatusCode.SUCCESS);
 		} else {
-			return new Result(null, Firebase.Default);
+			return new Result(null, Firebase.DEFAULT);
 		}
 	} catch (error) {
 		let message = ReadFireBaseErrorCode(error.code);
@@ -137,7 +137,7 @@ export async function getCountry(uid) {
 
 export async function updateAccountAsync(uid, firstname, surname, gender, birthdate) {
 	try {
-		if (!firstname || !surname || !gender || gender === string.Empty || !birthdate) return new Result(null, Error.All_fields_required);
+		if (!firstname || !surname || !gender || gender === String.Empty || !birthdate) return new Result(null, Error.ALL_FIELDS__REQUIRED);
 
 		if (!underAgeValidate(birthdate)) return new Result(null, Error.AgeLimition);
 
@@ -148,7 +148,7 @@ export async function updateAccountAsync(uid, firstname, surname, gender, birthd
 			gender,
 			birthdate,
 		});
-		return new Result(true, StatusCode.Success);
+		return new Result(true, StatusCode.SUCCESS);
 	} catch (error) {
 		let message = ReadFireBaseErrorCode(error.code);
 		handleErrorAsync(LogTypes.Error, message);
@@ -158,7 +158,7 @@ export async function updateAccountAsync(uid, firstname, surname, gender, birthd
 
 export async function updateCountryAsync(uid, country, countrycode, id) {
 	try {
-		if (!country || !countrycode || !id) return new Result(null, Error.All_fields_required);
+		if (!country || !countrycode || !id) return new Result(null, Error.ALL_FIELDS__REQUIRED);
 
 		const docRef = doc(db, Tables.Countries, uid);
 		await updateDoc(docRef, {
@@ -166,7 +166,7 @@ export async function updateCountryAsync(uid, country, countrycode, id) {
 			countrycode,
 			id,
 		});
-		return new Result(true, StatusCode.Success);
+		return new Result(true, StatusCode.SUCCESS);
 	} catch (error) {
 		let message = ReadFireBaseErrorCode(error.code);
 		handleErrorAsync(LogTypes.Error, message);
@@ -175,12 +175,12 @@ export async function updateCountryAsync(uid, country, countrycode, id) {
 }
 
 export async function changePassword(user, newPassword, confirmedPassword) {
-	if (newPassword !== confirmedPassword) return new Result(null, Error.Confirmed_password_does_not_match);
+	if (newPassword !== confirmedPassword) return new Result(null, Error.CONFIRMED_PASSWORD_DOES_NOT_MATCH);
 
 	return await Promise.resolve(
 		await updatePassword(user, newPassword)
 			.then(async () => {
-				return new Result(true, StatusCode.Success);
+				return new Result(true, StatusCode.SUCCESS);
 			})
 			.catch((error) => {
 				let message = ReadFireBaseErrorCode(error.code);
@@ -192,7 +192,7 @@ export async function changePassword(user, newPassword, confirmedPassword) {
 
 export async function handleTicketAsync(firstname, surname, email, subject, message) {
 	try {
-		if (!email || !firstname || !surname || !subject || !message) return new Result(null, Error.All_fields_required);
+		if (!email || !firstname || !surname || !subject || !message) return new Result(null, Error.ALL_FIELDS__REQUIRED);
 
 		var ticket = {
 			firstname: firstname,
@@ -205,11 +205,11 @@ export async function handleTicketAsync(firstname, surname, email, subject, mess
 
 		const docRef = await addDoc(collection(db, Tables.Tickets), ticket);
 
-		if (window.location.hostname === Routes.Dev_base) {
+		if (window.location.hostname === Routes.DEV_BASE) {
 			console.log("Ticket id:", docRef.id);
 		}
 
-		return new Result(docRef.id, StatusCode.Success);
+		return new Result(docRef.id, StatusCode.SUCCESS);
 	} catch (error) {
 		let message = ReadFireBaseErrorCode(error.code);
 		handleErrorAsync(LogTypes.Error, message);
@@ -219,7 +219,7 @@ export async function handleTicketAsync(firstname, surname, email, subject, mess
 
 export async function handleErrorAsync(logType, message) {
 	try {
-		if (window.location.hostname === Routes.Dev_base) {
+		if (window.location.hostname === Routes.DEV_BASE) {
 			console.log(message);
 		}
 
@@ -237,7 +237,7 @@ export async function handleErrorAsync(logType, message) {
 	} catch (error) {
 		let message = ReadFireBaseErrorCode(error.code);
 
-		if (window.location.hostname === Routes.Dev_base) {
+		if (window.location.hostname === Routes.DEV_BASE) {
 			console.log(message);
 		}
 
@@ -246,7 +246,7 @@ export async function handleErrorAsync(logType, message) {
 }
 
 function ReadFireBaseErrorCode(errorCode) {
-	if (!errorCode) return Firebase.Default;
+	if (!errorCode) return Firebase.DEFAULT;
 
-	return errorCode.replace(Firebase.Prefix, string.Empty).split(Symbol.Dash).join(string.Space);
+	return errorCode.replace(Firebase.PREFIX, String.Empty).split(Symbol.Dash).join(String.Space);
 }

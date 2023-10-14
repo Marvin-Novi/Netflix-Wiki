@@ -7,7 +7,7 @@ function TextArea(props) {
 			{props.DisplayName}
 			<textarea
 				id={props.Id}
-				className={Class.textarea}
+				className={Class.TEXTAREA}
 				placeholder={props.Placeholder}
 				value={props.Value}
 				onInput={(e) => props.OnInput(e.target.value)}

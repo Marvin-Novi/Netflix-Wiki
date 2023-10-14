@@ -18,7 +18,7 @@ function AccountDelete() {
 			.then((isSuccess) => {
 				if (isSuccess) {
 					logout();
-					handleNavigation(Routes.Home);
+					handleNavigation(Routes.HOME);
 				}
 			})
 			.catch((error) => {
@@ -29,7 +29,7 @@ function AccountDelete() {
 	useEffect(() => {
 		try {
 			if (!authState.user) {
-				handleNavigation(Routes.Login);
+				handleNavigation(Routes.LOGIN);
 			}
 		} catch (error) {
 			handleErrorAsync(LogTypes.Error, error);
@@ -42,14 +42,14 @@ function AccountDelete() {
 	}
 
 	return (
-		<div className={Class.account}>
-			<header className={Class.txt_center}></header>
+		<div className={Class.ACCOUNT}>
+			<header className={Class.TXT_CENTER}></header>
 
 			<section>
-				<div className={Class.editform}>
+				<div className={Class.EDITFORM}>
 					<label>{Text.Delete_account}?</label>
-					<Button Class={Class.btn_primary} Text={Text.Delete} OnClick={() => handleDelete()} Type={Types.Button} />
-					<Button Class={Class.btn_secondary} Text={Text.Previous_page} Type={Types.Button} OnClick={() => history.goBack()} />
+					<Button Class={Class.BTN_PRIMARY} Text={Text.Delete} OnClick={() => handleDelete()} Type={Types.BUTTON} />
+					<Button Class={Class.BTN_SECONDARY} Text={Text.Previous_page} Type={Types.BUTTON} OnClick={() => history.goBack()} />
 				</div>
 			</section>
 		</div>

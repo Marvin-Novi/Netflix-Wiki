@@ -9,8 +9,8 @@ function PasswordField(props) {
 			<input
 				id={props.Id}
 				autoComplete={props.AutoComplete}
-				className={Class.textfield}
-				type={Types.Password}
+				className={Class.TEXTFIELD}
+				type={Types.PASSWORD}
 				placeholder={props.Placeholder}
 				value={props.Value}
 				onInput={(e) => props.OnInput(e.target.value)}

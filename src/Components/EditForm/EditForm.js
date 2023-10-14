@@ -2,7 +2,7 @@ import { Class } from "../../Constants/Css";
 
 function EditForm(props) {
 	return (
-		<form className={Class.editform} onSubmit={props.OnSubmit}>
+		<form className={Class.EDITFORM} onSubmit={props.OnSubmit}>
 			{props.children}
 		</form>
 	);
