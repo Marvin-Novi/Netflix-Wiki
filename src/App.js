@@ -60,7 +60,7 @@ function App() {
           </Route>
         </Switch>
       </main>
-      <footer className="txt-center">Deze web aplicatie is in opdracht van Novi hogeshool gemaakt.</footer>
+      <footer className="txt-center">{Text.Footer}</footer>
     </Router>
   );
 }

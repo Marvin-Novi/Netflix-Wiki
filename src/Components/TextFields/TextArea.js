@@ -1,3 +1,4 @@
+import React from "react";
 import "./TextArea.css";
 import { Class } from "../../Constants/Css";
 

@@ -46,6 +46,7 @@ function Navbar() {
 				};
 
 				if (Object.keys(account).length === 0) fetchData();
+				
 			}
 		} catch (error) {
 			handleErrorAsync(LogTypes.Error, error);
@@ -88,8 +89,8 @@ function Navbar() {
 				)}
 				<Button
 					Class={Class.BTN_PRIMARY}
-					Image={theme === Theme.dark ? Light : Dark}
-					Text={theme === Theme.dark ? Text.Light : Text.Dark}
+					Image={theme !== Theme.DARK_BACKGROUND ? Light : Dark}
+					Text={theme !== Theme.DARK_BACKGROUND ? Text.Light : Text.Dark}
 					OnClick={toggleTheme}
 					Type={Types.BUTTON}
 				/>

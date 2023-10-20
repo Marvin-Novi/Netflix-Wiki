@@ -1,4 +1,5 @@
 import "./MenuItems.css";
+import React from "react";
 import { useState, useEffect, useRef } from "react";
 import Dropdown from "../Dropdown/Dropdown";
 import { Link } from "react-router-dom";

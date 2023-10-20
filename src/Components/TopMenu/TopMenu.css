@@ -13,7 +13,7 @@
 	transition: 0.8s;
 }
 
-.topmenu:hover {
+.topmenu:hover, .topmenu-active{
 	opacity: 1;
 }
 

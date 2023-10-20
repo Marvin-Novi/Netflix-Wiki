@@ -1,7 +1,8 @@
 import "./Contact.css";
+import React from "react";
 import { Class } from "../../Constants/Css";
 import { useCallback, useState } from "react";
-import { String} from "../../Constants/Data";
+import { String } from "../../Constants/Data";
 import { Text } from "../../Constants/Messages";
 import TextField from "../../Components/TextFields/TextField";
 import ErrorField from "../../Components/Errorhandlers/ErrorField";

@@ -1,4 +1,5 @@
 import "./AboutUs.css";
+import React from "react";
 import { Class } from "../../Constants/Css";
 import { Text } from "../../Constants/Messages";
 

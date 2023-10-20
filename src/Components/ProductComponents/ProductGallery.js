@@ -1,3 +1,4 @@
+import React from "react";
 import ProductCard from "./ProductCard";
 import LoadingSpinner from "../../Resources/Images/Loading-spinner.svg";
 import { Link } from "react-router-dom";

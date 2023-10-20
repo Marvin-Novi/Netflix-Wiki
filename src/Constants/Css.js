@@ -42,6 +42,7 @@ export class Class {
 	static STORY = "story";
 	static IMAGE = "image";
 	static BTN_IMAGE = "btn-image";
+	static TOPMENU_ACTIVE = "topmenu-active";
 }
 
 export class Id {
@@ -68,6 +69,7 @@ export class Id {
 	static SEARCH_INPUT = "searchinput";
 	static SEARCH_BUTTON = "searchbutton";
 	static SEARCH_ALL = "search-all";
+	static TOPMENU = "topmenu";
 }
 
 export class Aria {

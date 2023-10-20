@@ -207,4 +207,24 @@ export class Text {
 	static get Light() {
 		return "Light";
 	}
+
+	static get All() {
+		return "All";
+	}
+
+	static get Movies() {
+		return "Movies";
+	}
+
+	static get Series() {
+		return "Series";
+	}
+
+	static get Expiring() {
+		return "Expiring";
+	}
+	
+	static get Footer() {
+		return "Deze web aplicatie is in opdracht van Novi hogeshool gemaakt.";
+	}
 }

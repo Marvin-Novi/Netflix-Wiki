@@ -30,7 +30,7 @@ function TopMenu() {
 	}
 
 	return (
-		<div className={Class.TOPMENU}>
+		<div className={Class.TOPMENU} id={Id.TOPMENU}>
 			<div id={Id.LOGO_AREA} onClick={() => handleNavigation(authState.user ? Routes.BROWSE : Routes.HOME)}>
 				<img src={Logo} className={Class.APP_LOGO} alt={Text.Logo} />
 			</div>

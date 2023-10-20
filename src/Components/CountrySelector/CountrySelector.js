@@ -1,8 +1,6 @@
 import React, { useState, useEffect } from "react";
 import { String } from "../../Constants/Data";
 import { Id } from "../../Constants/Css";
-import { handleErrorAsync } from "../../Firebase/FirebaseEntitiesContext";
-import { LogTypes } from "../../Firebase/FirebaseEntities";
 
 function CountrySelector(props) {
 	const [selected, setSelected] = useState(String.Empty);
@@ -14,7 +12,7 @@ function CountrySelector(props) {
 				setSelected(JSON.stringify(country));
 			}
 		} catch (error) {
-			handleErrorAsync(LogTypes.Error, error);
+			throw error;
 		}
 	}, [props]);
 
