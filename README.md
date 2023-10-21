@@ -5,7 +5,9 @@ To install and run a Node.js project, you can follow these simple steps:
 
 **Step 1:** Open your terminal or command prompt.
 
-**Step 2:** Type the following command and press Enter to install the project dependencies (assuming you're in the project directory):
+**Step 2:** Create an `.env` file and fill in your own API keys. See `.env.dist` for the example
+
+**Step 3:** Type the following command and press Enter to install the project dependencies (assuming you're in the project directory):
 
 ```shell
 npm install
@@ -13,7 +15,14 @@ npm install
 
 This command will download and install all the required packages and dependencies for your project.
 
-**Step 3:** After the installation is complete, type the following command and press Enter to start the project:
+**Step 4:** Open your terminal or command prompt. (This will ensure the `.env` are present)
+:
+
+```shell
+npm run build
+```
+
+**Step 5:** After the installation is complete, type the following command and press Enter to start the project:
 
 ```shell
 npm start
